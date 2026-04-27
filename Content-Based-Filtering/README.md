@@ -1,5 +1,10 @@
 # Assignment 1: Content-Based Filtering — Next Item Retrieval
 
+## Files
+- for submitted model look at the `final_submission_model.ipynb`
+- for data exploration and analysis look at the `data_exploration.ipynb`
+- datasets have not been uploaded for storage reasons
+
 ## Task Description
 
 You are given a dataset of user–item interactions from software product reviews. Each user has a history of items they reviewed, along with review text, ratings, and timestamps.
