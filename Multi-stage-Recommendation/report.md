@@ -3,7 +3,8 @@
 **Main Model Notebook:** `multi_stage_recsys.ipynb`\
 *One Line Run*: `jupyter nbconvert --execute --to notebook --inplace multi_stage_recsys.ipynb`
 \
-**Data Exploration:** `data_exploration.ipynb`
+**Data Exploration:** `data_exploration.ipynb`\
+*Note: image_two.png in the repo is the pipeline architecture drawing if you want to look at it seperately*
 
 ---
 
