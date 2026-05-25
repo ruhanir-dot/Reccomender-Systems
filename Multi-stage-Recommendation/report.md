@@ -5,6 +5,33 @@
 \
 **Data Exploration:** `data_exploration.ipynb`
 
+---
+
+## Table of Contents
+- [Multi-Stage Steam Game Recommender](#multi-stage-steam-game-recommender)
+  - [Table of Contents](#table-of-contents)
+  - [Approach Overview](#approach-overview)
+  - [Data Exploration and Validation Set](#data-exploration-and-validation-set)
+    - [Data Exploration \& Feature Justifications](#data-exploration--feature-justifications)
+      - [Dataset Sparsity](#dataset-sparsity)
+      - [User Activity Distribution](#user-activity-distribution)
+      - [Item Popularity](#item-popularity)
+      - [Playtime Distribution](#playtime-distribution)
+    - [Temporal Coverage](#temporal-coverage)
+    - [Item Metadata Coverage](#item-metadata-coverage)
+    - [Validation Split](#validation-split)
+  - [Stage 1: Retrieval](#stage-1-retrieval)
+    - [Stage 1: Retrieval Recall](#stage-1-retrieval-recall)
+  - [Stage 2: Ranking](#stage-2-ranking)
+    - [Stage 2: Features and Configurations](#stage-2-features-and-configurations)
+    - [Stage 2: Feature Importance](#stage-2-feature-importance)
+  - [Final Metrics](#final-metrics)
+  - [Cold-User / Cold-Item Handling Discussion](#cold-user--cold-item-handling-discussion)
+  - [References](#references)
+    - [Footnotes](#footnotes)
+
+---
+
 ## Approach Overview
 This is a two-stage recommendation system that aims to predict the top-10 games each test user will play next from a catalog of around 30,000 Steam games. The pipeline first retrieves approximately 360 candidates for each user from a four-channel fusion (TF-IDF + ItemKNN + ALS Matrix Factorization + Bayesian Personalized Ranking), then ranks them with a LightGBM LambdaRank model trained on 22 features. We got a mean score ((Recall@10 + NDCG@10)/2) of 0.1034 60 times better than the random baseline of 0.0017. Below is an overview of our pipeline architecture. We will go over the two stages and implementation details in this report as well as feature engineering and cold user/cold item handling.
 
